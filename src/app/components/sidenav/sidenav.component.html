@@ -1,0 +1,18 @@
+<div class="bg-white p-3 position-fixed">
+    <div class="m-3">
+      <div class="d-flex align-items-center">
+        <app-avatar name="Nome usuario" image="https://p2.trrsf.com/image/fget/cf/1200/1200/middle/images.terra.com/2024/07/08/705457866-chaves-exposicao.jpg"></app-avatar>
+      </div>
+    </div>
+    <nav>
+        <div>
+            <ul class="nav flex-column" >
+                <li class="nav-item"><a class="nav-link text-secondary" routerLink="/" routerLinkActive="active bg-primary text-white rounded" [routerLinkActiveOptions]="{ exact: true }">{{'navbar.homeComponent'|translate}}</a></li>
+                <li class="nav-item"><a class="nav-link text-secondary mb-5" [class]='isActive()?"active bg-primary text-white rounded" : ""' routerLink="/movies" >{{'navbar.moviesComponent'|translate}}</a></li>
+                <li class="nav-item"><a class="nav-link text-secondary" routerLinkActive="active bg-primary text-white rounded" >{{'navbar.configComponent'|translate}}</a></li>
+                <li class="nav-item"><a class="nav-link text-secondary "  routerLinkActive="active bg-primary text-white rounded" >{{'navbar.logout'|translate}}</a></li>
+            </ul>
+        </div>
+    </nav>
+  </div>
+  

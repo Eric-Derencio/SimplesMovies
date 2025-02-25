@@ -1,0 +1,184 @@
+{
+  "reviews": [
+    {
+      "id": "1",
+      "movieId": 550,
+      "author": "João Silva",
+      "rating": 9,
+      "img": "https://p2.trrsf.com/image/fget/cf/1200/1200/middle/images.terra.com/2024/07/08/705457866-chaves-exposicao.jpg",
+      "reviewContent": "Um filme incrível com reviravoltas inesperadas!",
+      "reviewDate": "2025-02-10",
+      "watchedDate": "2025-02-05"
+    },
+    {
+      "id": "5e6c",
+      "movieId": 1241982,
+      "author": "Nome Usuario",
+      "rating": 10,
+      "img": "https://p2.trrsf.com/image/fget/cf/1200/1200/middle/images.terra.com/2024/07/08/705457866-chaves-exposicao.jpg",
+      "reviewContent": "Bom",
+      "reviewDate": "2025-02-12",
+      "watchedDate": "2025-01-01"
+    },
+    {
+      "id": "e310",
+      "movieId": 939243,
+      "author": "Nome Usuario",
+      "rating": 8,
+      "img": "https://p2.trrsf.com/image/fget/cf/1200/1200/middle/images.terra.com/2024/07/08/705457866-chaves-exposicao.jpg",
+      "reviewContent": "Bom",
+      "reviewDate": "2025-02-13",
+      "watchedDate": "2024-10-27"
+    },
+    {
+      "id": "f1de",
+      "movieId": 238,
+      "author": "Nome Usuario",
+      "rating": 5,
+      "img": "https://p2.trrsf.com/image/fget/cf/1200/1200/middle/images.terra.com/2024/07/08/705457866-chaves-exposicao.jpg",
+      "reviewContent": "teste",
+      "reviewDate": "2025-02-17",
+      "watchedDate": "2003-10-12"
+    },
+    {
+      "id": "e415",
+      "movieId": 238,
+      "author": "Nome Usuario",
+      "rating": 5,
+      "img": "https://p2.trrsf.com/image/fget/cf/1200/1200/middle/images.terra.com/2024/07/08/705457866-chaves-exposicao.jpg",
+      "reviewContent": "te",
+      "reviewDate": "2025-02-17",
+      "watchedDate": "2003-10-12"
+    },
+    {
+      "id": "4418",
+      "movieId": 238,
+      "author": "Nome Usuario",
+      "rating": 1,
+      "img": "https://p2.trrsf.com/image/fget/cf/1200/1200/middle/images.terra.com/2024/07/08/705457866-chaves-exposicao.jpg",
+      "reviewContent": "1",
+      "reviewDate": "2025-02-17",
+      "watchedDate": "1971-03-14"
+    },
+    {
+      "id": "1059",
+      "movieId": 238,
+      "author": "Nome Usuario",
+      "rating": 6,
+      "img": "https://p2.trrsf.com/image/fget/cf/1200/1200/middle/images.terra.com/2024/07/08/705457866-chaves-exposicao.jpg",
+      "reviewContent": "Bom",
+      "reviewDate": "2025-02-17",
+      "watchedDate": "0001-01-01"
+    },
+    {
+      "id": "20eb",
+      "movieId": 238,
+      "author": "Nome Usuario",
+      "rating": 8,
+      "img": "https://p2.trrsf.com/image/fget/cf/1200/1200/middle/images.terra.com/2024/07/08/705457866-chaves-exposicao.jpg",
+      "reviewContent": "Bom",
+      "reviewDate": "2025-02-17",
+      "watchedDate": "0001-01-01"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "João Silva",
+      "email": "",
+      "password": "123456"
+    }
+  ],
+  "favMovies": [
+    {
+      "id": "b673",
+      "movieId": 372058,
+      "userId": 1
+    },
+    {
+      "id": "7474",
+      "movieId": 12477,
+      "userId": 1
+    },
+    {
+      "id": "7519",
+      "movieId": 324857,
+      "userId": 1
+    },
+    {
+      "id": "e88c",
+      "movieId": 378064,
+      "userId": 1
+    },
+    {
+      "id": "ce09",
+      "movieId": 129,
+      "userId": 1
+    },
+    {
+      "id": "9870",
+      "movieId": 238,
+      "userId": 1
+    },
+    {
+      "id": "88c1",
+      "movieId": 4935,
+      "userId": 1
+    },
+    {
+      "id": "0d14",
+      "movieId": 569094,
+      "userId": 1
+    },
+    {
+      "id": "613f",
+      "movieId": 128,
+      "userId": 1
+    },
+    {
+      "id": "c1b8",
+      "movieId": 823219,
+      "userId": 1
+    },
+    {
+      "id": "76b0",
+      "movieId": 315162,
+      "userId": 1
+    },
+    {
+      "id": "76e1",
+      "movieId": 810693,
+      "userId": 1
+    },
+    {
+      "id": "badb",
+      "movieId": 475557,
+      "userId": 1
+    },
+    {
+      "id": "168f",
+      "movieId": 10681,
+      "userId": 1
+    },
+    {
+      "id": "68b9",
+      "movieId": 149871,
+      "userId": 1
+    },
+    {
+      "id": "1d90",
+      "movieId": 532067,
+      "userId": 1
+    },
+    {
+      "id": "af3f",
+      "movieId": 8392,
+      "userId": 1
+    },
+    {
+      "id": "6e17",
+      "movieId": 381284,
+      "userId": 1
+    }
+  ]
+}

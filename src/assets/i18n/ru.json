@@ -1,0 +1,37 @@
+{
+    "navbar": {
+        "homeComponent": "Главная",
+        "moviesComponent": "Фильмы",
+        "configComponent": "Настройки",
+        "logout": "Выйти"
+    },
+    "mainPage": {
+        "bannerTitle": "Создайте свой список фильмов",
+        "bannerSubtitle": "Сохраняйте свои любимые фильмы и будьте в курсе всех деталей",
+        "bannerButton": "Смотреть фильмы",
+        "FavoriteMovies": "Ваши любимые фильмы"
+    },
+    "moviesPage": {
+        "title": "Фильмы",
+        "listedMovies": "Список фильмов",
+        "serchBarPlaceholder": "Поиск фильмов",
+        "seeMoreButton": "Показать больше",
+        "notFound": "Фильм не найден"
+    },
+    "movieDescriptionPage": {
+        "cast": "Актерский состав",
+        "seeMoreCastButton": "Показать больше",
+        "directedBy": "Режиссер",
+        "released": "Премьера",
+        "synopsis": "Синопсис",
+        "comments": {
+            "title": "Комментарии",
+            "rateLabel": "Оценка:",
+            "ratePlaceholder": "Оцените фильм",
+            "watchedDateLabel": "Просмотрено:",
+            "commentLabel": "Комментарии",
+            "commentPlaceholder": "Введите комментарий",
+            "sendButton": "Отправить"
+        }
+    }
+}

@@ -1,0 +1,28 @@
+<div class="card text-bg-dark my-5">
+    <img src="../../../assets/img/banner.jpg" class="card-img " style="height: 20rem;">
+    <div class="card-img-overlay">
+        <h5 class="card-title">{{'mainPage.bannerTitle'|translate}}</h5>
+        <p class="card-text">{{'mainPage.bannerSubtitle'|translate}}</p>
+        <button class="btn bg-white">{{'mainPage.bannerButton'|translate}}</button>
+    </div>
+</div>
+<div class="mt-5 mb-4">
+    <h2>{{'mainPage.FavoriteMovies'|translate}}</h2>
+</div>
+<div class="container  bg-white rounded p-3">
+    <swiper-container class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4" scrollbar-hide="true" slides-per-view="4">
+        @for (movie of movieList; track $index) {
+            <swiper-slide>
+                <app-movie-card [filme]="movie" [isfav]="true" (del)="delFav(movie.id)"  class="col swiper-slide" />
+            </swiper-slide>
+        }
+
+    </swiper-container>
+</div>
+
+
+<!-- <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+    @for(movie of movieList ; track $index) {
+       <app-movie-card [filme]="movie" [isfav]="true" (del)="delFav(movie.id)"  class="col swiper-slide" />
+       }
+ </div> -->

@@ -1,0 +1,18 @@
+
+  <div class="card">
+    <a [routerLink]="['/movie', filme.id]" class="text-decoration-none">
+      <img [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path" class="card-img-top rounded" alt="{{ filme.title }}">
+    </a>
+    <div class="d-flex align-items-center">
+      <div class="my-2 flex-grow-1 overflow-hidden">
+        <a [routerLink]="['/movie', filme.id]" class="text-decoration-none">
+          <h5 class="card-title text-truncate mb-1 max-width-100 text-black">{{ filme.title }}</h5>
+        </a>
+        <p class="card-text ">{{ filme.release_date|date:'longDate' }}</p>
+      </div> 
+
+      <div class="align-self-center">
+          <i [class]="favIcon"  (click)="changebutton()"></i>
+      </div>
+    </div>
+  </div>

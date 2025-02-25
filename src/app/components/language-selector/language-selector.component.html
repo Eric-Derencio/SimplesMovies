@@ -1,0 +1,10 @@
+<div class="dropdown">
+    <button class="btn btn-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <span [class]="languageIcons"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" (click)="setLanguage('pt-BR','fi fi-br')"><span class="fi fi-br"></span> Português</a></li>
+      <li><a class="dropdown-item" (click)="setLanguage('en-US','fi fi-us')"><span class="fi fi-us"></span> Inglês</a></li>
+      <li><a class="dropdown-item" (click)="setLanguage('ru','fi fi-rs')"><span class="fi fi-rs"></span> Russo</a></li>
+    </ul>
+</div>
