@@ -29,6 +29,19 @@ export class MoviesService {
     .set('language', language)
     .set('page', page);
 
+    return this.http.get <MovieApiResponse>(`${this.apiUrl}/popular`, {
+      params: params,
+      headers: this.defaultHeaders,
+    });
+  }
+
+  public getTopRatedMovie(language: string, page: number): Observable<MovieApiResponse> {
+    // tipar o retorno
+
+    const params = new HttpParams() // query params
+    .set('language', language)
+    .set('page', page);
+
     return this.http.get <MovieApiResponse>(`${this.apiUrl}/top_rated`, {
       params: params,
       headers: this.defaultHeaders,

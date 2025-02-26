@@ -12,17 +12,27 @@
 <div class="container  bg-white rounded p-3">
     <swiper-container class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4" scrollbar-hide="true" slides-per-view="4">
         @for (movie of movieList; track $index) {
-            <swiper-slide>
-                <app-movie-card [filme]="movie" [isfav]="true" (del)="delFav(movie.id)"  class="col swiper-slide" />
-            </swiper-slide>
+        <swiper-slide>
+            <app-movie-card [filme]="movie" [isfav]="true" (del)="delFav(movie.id)" class="col swiper-slide" />
+        </swiper-slide>
         }
 
     </swiper-container>
 </div>
+<div class="mt-2 mb-4">
+    <h2>Top Filmes</h2>
+</div>
+<div class="container mt-4 bg-white rounded p-3">
+    <swiper-container class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4" scrollbar-hide="true" slides-per-view="4">
+        @if(totalMovies>0){
+        @for(top of topmovies ; track $index) {
+            <swiper-slide>
+                <app-movie-card [filme]="top" [isfav]="isfav(top.id)"(del)="delFav(top.id)" (add)="submitfav(top)"  class="col" />
+            </swiper-slide>
+        }
+        }
+    </swiper-container>
 
-
-<!-- <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-    @for(movie of movieList ; track $index) {
-       <app-movie-card [filme]="movie" [isfav]="true" (del)="delFav(movie.id)"  class="col swiper-slide" />
-       }
- </div> -->
+    @if(totalMovies<=0){ <p class="text-secondary text-center mt-5">{{'moviesPage.notFound'|translate}}</p>
+        }
+</div>
