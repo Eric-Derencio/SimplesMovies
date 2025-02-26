@@ -1,37 +1,37 @@
 {
-    "navbar": {
-        "homeComponent": "home",
-        "moviesComponent": "movies",
-        "configComponent": "settings",
-        "logout": "logout"
-    },
-    "mainPage": {
-        "bannerTitle": "Create your movie list",
-        "bannerSubtitle": "Save your favorite movies and stay on top of all the details",
-        "bannerButton": "View movies",
-        "FavoriteMovies": "Your favorite movies"
-    },
-    "moviesPage": {
-        "title": "Movies",
-        "listedMovies": "Listed Movies",
-        "serchBarPlaceholder": "Search movies",
-        "seeMoreButton": "Show More",
-        "notFound": "Movie not found"
-    },
-    "movieDescriptionPage": {
-        "cast": "Cast",
-        "seeMoreCastButton": "See More",
-        "directedBy": "Directed by",
-        "released": "Released on ",
-        "synopsis": "Synopsis",
-        "comments": {
-            "title": "Comments",
-            "rateLabel": "Rating:",
-            "ratePlaceholder": "Rate the movie",
-            "watchedDateLabel": "Watched on:",
-            "commentLabel": "Comments",
-            "commentPlaceholder": "Type your comment",
-            "sendButton": "Send"
-        }
+  "navbar": {
+    "homeComponent": "home",
+    "moviesComponent": "movies",
+    "configComponent": "settings",
+    "logout": "logout"
+  },
+  "mainPage": {
+    "bannerTitle": "Create your movie list",
+    "bannerSubtitle": "Save your favorite movies and stay on top of all the details",
+    "bannerButton": "View movies",
+    "FavoriteMovies": "Your favorite movies"
+  },
+  "moviesPage": {
+    "title": "Movies",
+    "listedMovies": "Listed Movies",
+    "serchBarPlaceholder": "Search movies",
+    "seeMoreButton": "Show More",
+    "notFound": "Movie not found"
+  },
+  "movieDescriptionPage": {
+    "cast": "Cast",
+    "seeMoreCastButton": "See More",
+    "directedBy": "Directed by",
+    "released": "Released on ",
+    "synopsis": "Synopsis",
+    "comments": {
+      "title": "Comments",
+      "rateLabel": "Rating:",
+      "ratePlaceholder": "Rate the movie",
+      "watchedDateLabel": "Watched on:",
+      "commentLabel": "Comments",
+      "commentPlaceholder": "Type your comment",
+      "sendButton": "Send"
     }
+  }
 }

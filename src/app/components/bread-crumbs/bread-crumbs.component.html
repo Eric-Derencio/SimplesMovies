@@ -1,15 +1,14 @@
 <nav *ngIf="breadcrumbs.length">
-    <ul class="breadcrumb">
-      <li *ngFor="let breadcrumb of breadcrumbs; let last = last">
-        <!-- Se não for o último item, exibe como link -->
-        <a *ngIf="!last; else lastCrumb" [routerLink]="breadcrumb.url">
-          {{ breadcrumb.label }}
-        </a>
-        <!-- Se for o último, exibe apenas o texto -->
-        <ng-template #lastCrumb>
-          <span>{{ breadcrumb.label }}</span>
-        </ng-template>
-      </li>
-    </ul>
-  </nav>
-  
+  <ul class="breadcrumb">
+    <li *ngFor="let breadcrumb of breadcrumbs; let last = last">
+      <!-- Se não for o último item, exibe como link -->
+      <a *ngIf="!last; else lastCrumb" [routerLink]="breadcrumb.url">
+        {{ breadcrumb.label }}
+      </a>
+      <!-- Se for o último, exibe apenas o texto -->
+      <ng-template #lastCrumb>
+        <span>{{ breadcrumb.label }}</span>
+      </ng-template>
+    </li>
+  </ul>
+</nav>

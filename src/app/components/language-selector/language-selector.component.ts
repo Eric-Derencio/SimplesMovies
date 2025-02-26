@@ -5,14 +5,13 @@ import { LanguageService } from '../../services/language.service';
   selector: 'app-language-selector',
   imports: [],
   templateUrl: './language-selector.component.html',
-  styleUrl: './language-selector.component.scss'
+  styleUrl: './language-selector.component.scss',
 })
-export class LanguageSelectorComponent implements OnInit{
-  language!:string;
-  languageIcons!:string;
+export class LanguageSelectorComponent implements OnInit {
+  language!: string;
+  languageIcons!: string;
 
-  constructor(private languageService:LanguageService){
-  }
+  constructor(private languageService: LanguageService) {}
   ngOnInit(): void {
     this.languageService.subjectObservable$.subscribe({
       next: (valor) => {
@@ -21,12 +20,11 @@ export class LanguageSelectorComponent implements OnInit{
       },
       error: (err) => {
         console.error(err);
-      }
+      },
     });
   }
 
-  setLanguage(language:string,languageIcons:string){
+  setLanguage(language: string, languageIcons: string) {
     this.languageService.changeLanguages(language, languageIcons);
-  };
-
+  }
 }

@@ -1,37 +1,37 @@
 {
-    "navbar": {
-        "homeComponent": "Inicio",
-        "moviesComponent": "Filmes",
-        "configComponent": "Configurações",
-        "logout": "Sair"
-    },
-    "mainPage": {
-        "bannerTitle": "Crie sua lista de filmes",
-        "bannerSubtitle": "Salve seus filmes favoritos e fique por dentro de todos os detalhes",
-        "bannerButton": "Ver filmes",
-        "FavoriteMovies": "Seus filmes favoritos"
-    },
-    "moviesPage": {
-        "title": "Filmes",
-        "listedMovies": "Filmes listados",
-        "serchBarPlaceholder": "Pesquisar filmes",
-        "seeMoreButton": "Mostar Mais",
-        "notFound":"Filme não encontrado"
-    },
-    "movieDescriptionPage": {
-        "cast": "Elenco",
-        "seeMoreCastButton": "Ver Mais ",
-        "directedBy": "Dirigido por ",
-        "released": "Estreiou em ",
-        "synopsis": "sinopse",
-        "comments": {
-            "title": "Comentarios",
-            "rateLabel": "Avaliação:",
-            "ratePlaceholder": "Avalie o Filme",
-            "watchedDateLabel": "Assistido em:",
-            "commentLabel": "Comentários",
-            "commentPlaceholder": "Digite seu comentario",
-            "sendButton": "Enviar"
-        }
+  "navbar": {
+    "homeComponent": "Inicio",
+    "moviesComponent": "Filmes",
+    "configComponent": "Configurações",
+    "logout": "Sair"
+  },
+  "mainPage": {
+    "bannerTitle": "Crie sua lista de filmes",
+    "bannerSubtitle": "Salve seus filmes favoritos e fique por dentro de todos os detalhes",
+    "bannerButton": "Ver filmes",
+    "FavoriteMovies": "Seus filmes favoritos"
+  },
+  "moviesPage": {
+    "title": "Filmes",
+    "listedMovies": "Filmes listados",
+    "serchBarPlaceholder": "Pesquisar filmes",
+    "seeMoreButton": "Mostar Mais",
+    "notFound": "Filme não encontrado"
+  },
+  "movieDescriptionPage": {
+    "cast": "Elenco",
+    "seeMoreCastButton": "Ver Mais ",
+    "directedBy": "Dirigido por ",
+    "released": "Estreiou em ",
+    "synopsis": "sinopse",
+    "comments": {
+      "title": "Comentarios",
+      "rateLabel": "Avaliação:",
+      "ratePlaceholder": "Avalie o Filme",
+      "watchedDateLabel": "Assistido em:",
+      "commentLabel": "Comentários",
+      "commentPlaceholder": "Digite seu comentario",
+      "sendButton": "Enviar"
     }
+  }
 }

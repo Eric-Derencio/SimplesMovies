@@ -1,153 +1,229 @@
 <div class="pb-3">
-    <h1>{{movie.title}}</h1>
+  <h1>{{ movie.title }}</h1>
 </div>
 
-
 <div class="row gap-3 ps-3">
-    <div class="col bg-white rounded h-50 p-4">
-        <div class="card">
-            <img [src]="'https://image.tmdb.org/t/p/original/' + movie.poster_path" class="card-img-top rounded"
-                alt="{{ movie.title }}">
-            <div class="row mt-3">
-                <div class="col-4">
-                    <app-badge icon="bi bi-star-fill text-warning"
-                        [text]="movie.vote_average.toString() | number:'1.0-1':language" [isBold]="true"></app-badge>
-                </div>
-                <div class="col-8">
-                    <div class="row">
-                        <span>{{'movieDescriptionPage.directedBy'|translate}}<strong>
-                                @for(member of director;track $index){
-                                @if($index>0){
-                                ,
-                                }
-                                {{member.name}}
-                                }
-                            </strong></span>
-                    </div>
-                    <div class="row">
-                        <span>{{'movieDescriptionPage.released'|translate}} {{movie.release_date|date:'longDate':
-                            '':language }}</span>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-between mt-3 row">
-                    @for(genre of movie.genres;track $index){
-                    <div class="col-3 p-2">
-                        <app-badge [text]="genre.name"></app-badge>
-                    </div>
-                    }
-                </div>
-            </div>
+  <div class="col bg-white rounded h-50 p-4">
+    <div class="card">
+      <img
+        [src]="'https://image.tmdb.org/t/p/original/' + movie.poster_path"
+        class="card-img-top rounded"
+        alt="{{ movie.title }}"
+      />
+      <div class="row mt-3">
+        <div class="col-4">
+          <app-badge
+            icon="bi bi-star-fill text-warning"
+            [text]="movie.vote_average.toString() | number : '1.0-1' : language"
+            [isBold]="true"
+          ></app-badge>
         </div>
+        <div class="col-8">
+          <div class="row">
+            <span
+              >{{ "movieDescriptionPage.directedBy" | translate
+              }}<strong>
+                @for(member of director;track $index){ @if($index>0){ , }
+                {{ member.name }}
+                }
+              </strong></span
+            >
+          </div>
+          <div class="row">
+            <span
+              >{{ "movieDescriptionPage.released" | translate }}
+              {{ movie.release_date | date : "longDate" : "" : language }}</span
+            >
+          </div>
+        </div>
+        <div class="d-flex justify-content-between mt-3 row">
+          @for(genre of movie.genres;track $index){
+          <div class="col-3 p-2">
+            <app-badge [text]="genre.name"></app-badge>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="row bg-white mb-3 rounded">
+      <div>
+        <h5 class="py-2">{{ "movieDescriptionPage.cast" | translate }}</h5>
+      </div>
+      <div class="d-flex flex-column justify-content-evenly">
+        @for(actor of resumeCast ;track $index){ @if(actor.profile_path!=null){
+        <app-avatar
+          class="p-2"
+          [name]="actor.name"
+          [description]="actor.character"
+          [image]="'https://image.tmdb.org/t/p/original/' + actor.profile_path"
+        ></app-avatar>
+        }@else{
+        <app-avatar
+          class="p-2"
+          [name]="actor.name"
+          [description]="actor.character"
+          image="https://thumbs.dreamstime.com/b/vetor-de-%C3%ADcone-perfil-do-avatar-padr%C3%A3o-foto-usu%C3%A1rio-m%C3%ADdia-social-183042379.jpg"
+        ></app-avatar>
+        } }
+      </div>
+
+      <div class="d-flex justify-content-end p-3">
+        <div class="d-flex justify-content-end p-3">
+          <app-common-button
+            text="{{ 'movieDescriptionPage.seeMoreCastButton' | translate }}"
+            icon="bi bi-plus"
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+          </app-common-button>
+        </div>
+      </div>
     </div>
 
-    <div class="col">
-        <div class="row bg-white mb-3 rounded">
-            <div>
-                <h5 class="py-2">{{'movieDescriptionPage.cast'|translate}}</h5>
-            </div>
-            <div class="d-flex flex-column justify-content-evenly">
-                @for(actor of resumeCast ;track $index){
-                    @if(actor.profile_path!=null){
-                        <app-avatar class="p-2" [name]="actor.name" [description]="actor.character"
-                                [image]="'https://image.tmdb.org/t/p/original/'+actor.profile_path"></app-avatar>
-                    }@else{
-                        <app-avatar class="p-2" [name]="actor.name" [description]="actor.character"
-                        image="https://thumbs.dreamstime.com/b/vetor-de-%C3%ADcone-perfil-do-avatar-padr%C3%A3o-foto-usu%C3%A1rio-m%C3%ADdia-social-183042379.jpg"></app-avatar>
-                    }
-                }
-            </div>
-
-            <div class="d-flex justify-content-end p-3">
-                <div class="d-flex justify-content-end p-3">
-                    <app-common-button text="{{'movieDescriptionPage.seeMoreCastButton'|translate}}" icon="bi bi-plus"
-                        type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    </app-common-button>
-                </div>
-            </div>
-        </div>
-
-        <div class="row bg-white rounded p-3 mb-3">
-            <div>
-                <h5 class="pt-2">{{'movieDescriptionPage.synopsis'|translate}}</h5>
-            </div>
-            <div class="p-3">
-                {{movie.overview}}
-            </div>
-        </div>
-
-        <div class="row bg-white rounded p-3">
-            <div>
-                <h5 class="pt-2">{{'movieDescriptionPage.comments.title'|translate}}</h5>
-            </div>
-            <div>
-                <div class="card p-2">
-
-                    <app-avatar name="Nome Usuario"
-                        image="https://p2.trrsf.com/image/fget/cf/1200/1200/middle/images.terra.com/2024/07/08/705457866-chaves-exposicao.jpg"></app-avatar>
-                    <div style="padding-left:60px ;">
-                        <form [formGroup]="meuFormulario" (ngSubmit)="submitComment()"
-                            class="p-3 border rounded shadow-sm bg-light">
-                            <div class="mb-3">
-                                <label for="nota"
-                                    class="form-label">{{'movieDescriptionPage.comments.rateLabel'|translate}}</label>
-                                <input type="number" formControlName="nota" [(ngModel)]="notaModel" name="nota"
-                                    id="nota" class="form-control"
-                                    placeholder="{{'movieDescriptionPage.comments.ratePlaceholder'|translate}}" />
-
-                                <label for="nota"
-                                    class="form-label">{{'movieDescriptionPage.comments.watchedDateLabel'|translate}}</label>
-                                <input type="date" formControlName="data" [(ngModel)]="dataModel" name="data" id="data"
-                                    class="form-control" />
-
-                                <label for="comentario"
-                                    class="form-label">{{'movieDescriptionPage.comments.commentLabel'|translate}}</label>
-                                <input type="text" formControlName="comentario" [(ngModel)]="comentModel"
-                                    name="comentario" id="comentario" class="form-control"
-                                    placeholder="{{'movieDescriptionPage.comments.commentPlaceholder'|translate}}" />
-                            </div>
-                            <div class="d-grid">
-                                <button type="submit"
-                                    class="btn btn-primary">{{'movieDescriptionPage.comments.sendButton'|translate}}</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="p-3">
-                @for(comment of comments;track $index){
-                <div class="mb-3">
-                    <app-coment-card [autor]="comment.author" [img]="comment.img" [comment]="comment.reviewContent"
-                        [dataReview]="comment.reviewDate" [rating]="comment.rating"></app-coment-card>
-                </div>
-                }
-            </div>
-        </div>
+    <div class="row bg-white rounded p-3 mb-3">
+      <div>
+        <h5 class="pt-2">{{ "movieDescriptionPage.synopsis" | translate }}</h5>
+      </div>
+      <div class="p-3">
+        {{ movie.overview }}
+      </div>
     </div>
+
+    <div class="row bg-white rounded p-3">
+      <div>
+        <h5 class="pt-2">
+          {{ "movieDescriptionPage.comments.title" | translate }}
+        </h5>
+      </div>
+      <div>
+        <div class="card p-2">
+          <app-avatar
+            name="Nome Usuario"
+            image="https://p2.trrsf.com/image/fget/cf/1200/1200/middle/images.terra.com/2024/07/08/705457866-chaves-exposicao.jpg"
+          ></app-avatar>
+          <div style="padding-left: 60px">
+            <form
+              [formGroup]="meuFormulario"
+              (ngSubmit)="submitComment()"
+              class="p-3 border rounded shadow-sm bg-light"
+            >
+              <div class="mb-3">
+                <label for="nota" class="form-label">{{
+                  "movieDescriptionPage.comments.rateLabel" | translate
+                }}</label>
+                <input
+                  type="number"
+                  formControlName="nota"
+                  [(ngModel)]="notaModel"
+                  name="nota"
+                  id="nota"
+                  class="form-control"
+                  placeholder="{{
+                    'movieDescriptionPage.comments.ratePlaceholder' | translate
+                  }}"
+                />
+
+                <label for="nota" class="form-label">{{
+                  "movieDescriptionPage.comments.watchedDateLabel" | translate
+                }}</label>
+                <input
+                  type="date"
+                  formControlName="data"
+                  [(ngModel)]="dataModel"
+                  name="data"
+                  id="data"
+                  class="form-control"
+                />
+
+                <label for="comentario" class="form-label">{{
+                  "movieDescriptionPage.comments.commentLabel" | translate
+                }}</label>
+                <input
+                  type="text"
+                  formControlName="comentario"
+                  [(ngModel)]="comentModel"
+                  name="comentario"
+                  id="comentario"
+                  class="form-control"
+                  placeholder="{{
+                    'movieDescriptionPage.comments.commentPlaceholder'
+                      | translate
+                  }}"
+                />
+              </div>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary">
+                  {{ "movieDescriptionPage.comments.sendButton" | translate }}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="p-3">
+        @for(comment of comments;track $index){
+        <div class="mb-3">
+          <app-coment-card
+            [autor]="comment.author"
+            [img]="comment.img"
+            [comment]="comment.reviewContent"
+            [dataReview]="comment.reviewDate"
+            [rating]="comment.rating"
+          ></app-coment-card>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Elenco</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                @for(actor of cast ;track $index){
-                    @if(actor.profile_path!=null){
-                        <app-avatar class="p-2" [name]="actor.name" [description]="actor.character"
-                                [image]="'https://image.tmdb.org/t/p/original/'+actor.profile_path"></app-avatar>
-                    }@else{
-                        <app-avatar class="p-2" [name]="actor.name" [description]="actor.character"
-                        image="https://thumbs.dreamstime.com/b/vetor-de-%C3%ADcone-perfil-do-avatar-padr%C3%A3o-foto-usu%C3%A1rio-m%C3%ADdia-social-183042379.jpg"></app-avatar>
-                    }
-                }
-                </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Elenco</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        @for(actor of cast ;track $index){ @if(actor.profile_path!=null){
+        <app-avatar
+          class="p-2"
+          [name]="actor.name"
+          [description]="actor.character"
+          [image]="'https://image.tmdb.org/t/p/original/' + actor.profile_path"
+        ></app-avatar>
+        }@else{
+        <app-avatar
+          class="p-2"
+          [name]="actor.name"
+          [description]="actor.character"
+          image="https://thumbs.dreamstime.com/b/vetor-de-%C3%ADcone-perfil-do-avatar-padr%C3%A3o-foto-usu%C3%A1rio-m%C3%ADdia-social-183042379.jpg"
+        ></app-avatar>
+        } }
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
     </div>
+  </div>
 </div>
 <!--Teste-->

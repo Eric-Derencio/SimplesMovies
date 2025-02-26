@@ -4,21 +4,26 @@ import { filter } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { Breadcrumb } from '../models/breadcrumbs';
 
-
 @Injectable({ providedIn: 'root' })
 export class BreadcrumbService {
   private breadcrumbs$ = new BehaviorSubject<Breadcrumb[]>([]);
 
   constructor(private router: Router) {
     this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
+      .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
-        const breadcrumbs = this.createBreadcrumbs(this.router.routerState.snapshot.root);
+        const breadcrumbs = this.createBreadcrumbs(
+          this.router.routerState.snapshot.root
+        );
         this.breadcrumbs$.next(breadcrumbs);
       });
   }
 
-  private createBreadcrumbs(route: ActivatedRouteSnapshot, url: string = '', breadcrumbs: Breadcrumb[] = []): Breadcrumb[] {
+  private createBreadcrumbs(
+    route: ActivatedRouteSnapshot,
+    url: string = '',
+    breadcrumbs: Breadcrumb[] = []
+  ): Breadcrumb[] {
     if (route.routeConfig && route.routeConfig.data) {
       const path = route.routeConfig.path || '';
       url += `/${path.replace(':id', route.params['id'] || '')}`;

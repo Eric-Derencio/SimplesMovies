@@ -1,4 +1,10 @@
-import { Component, OnInit, OnDestroy, signal, WritableSignal } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
@@ -19,10 +25,10 @@ import { FavoriteService } from '../../services/favorite.service';
     CommonButtonComponent,
     CommonModule,
     FormsModule,
-    TranslatePipe
+    TranslatePipe,
   ],
   templateUrl: './movies.component.html',
-  styleUrl: './movies.component.scss'
+  styleUrl: './movies.component.scss',
 })
 export class MoviesComponent implements OnInit, OnDestroy {
   currentPage: WritableSignal<number> = signal(1);
@@ -48,54 +54,53 @@ export class MoviesComponent implements OnInit, OnDestroy {
         this.selectedLanguage = lang;
         this.languageIcon = icon;
         this.translate.use(this.selectedLanguage);
-
         this.movieList = [];
         this.fetchMovies(this.selectedLanguage);
       },
-      error: (err) => console.error(err)
+      error: (err) => console.error(err),
     });
   }
 
   fetchMovies(language: string) {
-    this.moviesService.getPopularMovies(language, this.currentPage()).subscribe({
-      next: (res) => {
-        this.movieList = [...this.movieList, ...res.results];
-        this.allMovies = this.movieList;
-        this.fetchFav()
-        this.updateTotalMovies();
-        
-      },
-      error: (err) => console.error(err)
-    });
+    this.moviesService
+      .getPopularMovies(language, this.currentPage())
+      .subscribe({
+        next: (res) => {
+          this.movieList = [...this.movieList, ...res.results];
+          this.allMovies = this.movieList;
+          this.fetchFav();
+          this.updateTotalMovies();
+        },
+        error: (err) => console.error(err),
+      });
   }
-  fetchFav(){
-    this.favoriteService.getFav(1,this.selectedLanguage).subscribe({
+  fetchFav() {
+    this.favoriteService.getFav(1, this.selectedLanguage).subscribe({
       next: (res) => {
-        this.favList=res  
+        this.favList = res;
       },
-      error: (err) => console.error(err)
+      error: (err) => console.error(err),
     });
   }
 
-  isfav(id:number):boolean{
-
-    for(let i = 0; i < this.favList.length; i++) {
-      if(this.favList[i].movieId===id){
+  isfav(id: number): boolean {
+    for (let i = 0; i < this.favList.length; i++) {
+      if (this.favList[i].movieId === id) {
         return true;
       }
     }
     return false;
   }
-  
+
   loadMoreMovies() {
-    this.currentPage.update(page => page + 1);
+    this.currentPage.update((page) => page + 1);
     this.fetchMovies(this.selectedLanguage);
-    console.log("Página atual:", this.currentPage());
+    console.log('Página atual:', this.currentPage());
   }
 
   filterMovieList() {
     if (this.searchQuery.trim()) {
-      this.movieList = this.allMovies.filter(movie =>
+      this.movieList = this.allMovies.filter((movie) =>
         movie.title.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     } else {
@@ -109,20 +114,19 @@ export class MoviesComponent implements OnInit, OnDestroy {
     this.totalMovies = this.movieList.length;
   }
 
-  submitfav(movie:MovieSummary){
-    console.log("entrou no submitfav");
-    const fav={movieId: movie.id, userId: 1}
-    this.favoriteService.setFav(fav).subscribe({  
-      error: (err) => console.error(err)
+  submitfav(movie: MovieSummary) {
+    console.log('entrou no submitfav');
+    const fav = { movieId: movie.id, userId: 1 };
+    this.favoriteService.setFav(fav).subscribe({
+      error: (err) => console.error(err),
     });
   }
-  
-  delFav(movie:MovieSummary){
-   this.filtered = this.favList.filter((fav) => fav.movieId == movie.id);
+
+  delFav(movie: MovieSummary) {
+    this.filtered = this.favList.filter((fav) => fav.movieId == movie.id);
 
     this.favoriteService.delFav(this.filtered[0].id).subscribe({
-      
-      error: (err) => console.error(err)
+      error: (err) => console.error(err),
     });
   }
 

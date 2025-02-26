@@ -1,4 +1,4 @@
 export type Path = {
-   title:string,
-   caminho:string
-}
+  title: string;
+  caminho: string;
+};

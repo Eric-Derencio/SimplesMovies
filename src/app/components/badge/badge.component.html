@@ -1,10 +1,11 @@
 <div class="text-center bg-primary py-3 text-white rounded">
-    @if(icon!==undefined){
-        <i [class]="icon" class="pe-3"></i>
-    }
-    @if(isBold!==true){
-        <span>{{text}}</span>
-    }@else {
-        <span><strong>{{text}}</strong></span>
-    }
+  @if(icon!==undefined){
+  <i [class]="icon" class="pe-3"></i>
+  } @if(isBold!==true){
+  <span>{{ text }}</span>
+  }@else {
+  <span
+    ><strong>{{ text }}</strong></span
+  >
+  }
 </div>

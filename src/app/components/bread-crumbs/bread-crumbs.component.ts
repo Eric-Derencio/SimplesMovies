@@ -1,6 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/router';
+import {
+  ActivatedRoute,
+  NavigationEnd,
+  Router,
+  RouterLink,
+} from '@angular/router';
 import { filter } from 'rxjs/operators';
 
 interface Breadcrumb {
@@ -10,29 +15,29 @@ interface Breadcrumb {
 
 @Component({
   selector: 'app-bread-crumbs',
-  imports: [RouterLink,CommonModule],
+  imports: [RouterLink, CommonModule],
   templateUrl: './bread-crumbs.component.html',
-  styleUrls: ['./bread-crumbs.component.scss']
+  styleUrls: ['./bread-crumbs.component.scss'],
 })
 export class BreadcrumbComponent implements OnInit {
-
   breadcrumbs: Breadcrumb[] = [];
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private router: Router
-  ) {}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     // Subscrição para capturar o término da navegação
     this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
+      .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
         this.breadcrumbs = this.buildBreadcrumb(this.activatedRoute.root);
       });
   }
 
-  private buildBreadcrumb(route: ActivatedRoute, url: string = '', breadcrumbs: Breadcrumb[] = []): Breadcrumb[] {
+  private buildBreadcrumb(
+    route: ActivatedRoute,
+    url: string = '',
+    breadcrumbs: Breadcrumb[] = []
+  ): Breadcrumb[] {
     // Pega a rota atual
     let children: ActivatedRoute[] = route.children;
 
@@ -42,7 +47,9 @@ export class BreadcrumbComponent implements OnInit {
 
     for (let child of children) {
       // Verifica se há uma parte da URL
-      let routeURL: string = child.snapshot.url.map(segment => segment.path).join('/');
+      let routeURL: string = child.snapshot.url
+        .map((segment) => segment.path)
+        .join('/');
       if (routeURL !== '') {
         // Monta a URL acumulada
         url += `/${routeURL}`;
